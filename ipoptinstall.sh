@@ -36,7 +36,11 @@ make
 make install
 
 # Installation of ipopt and configuration
-#
+cd ~/Ipopt-3.12.12
+./configure --prefix=$HOME/Ipopt-3.12.12/opt --enable-static --disable-shared --without-metis
+make
+make install
+make test
 
 # Move to trash downloaded IPOPT archive
 mv -v ~/Ipopt-3.12.12.tgz ~/.Trash
@@ -44,36 +48,5 @@ echo "Ipopt archive moved to trash!"
 echo "========================================"
 echo "Successful installation of Ipopt-3.12.12"
 echo "========================================"
-
-# tar zxvf ~/Downloads/Ipopt-3.12.12.tgz
-# 
-# Download of third party libraries
-# cd Ipopt-3.12.12/ThirdParty/Blas
-# ./get.Blas
-# cd ..
-# cd Lapack
-# ./get.Lapack
-# cd ..
-# cd Metis
-# ./get.Metis
-# cd ..
-# cd Mumps
-# ./get.Mumps
-# cd ..
-# cd ASL
-# ./get.ASL
-# cd ../..
-# cd Ipopt
-# ./configure --disable-shared \
-#   F77=gfortran FFLAGS="-fexceptions -m64 -fbackslash" \
-#   CFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch x86_64 -m64" \
-#   CXXFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch x86_64 -m64"
-# ./configure --disable-shared --with-pic\
-# 	F77=gfortran FFLAGS="-fexceptions -m64 -fbackslash" \
-# 	CFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch x86_64 -m64" \
-# 	CXXFLAGS="-fno-common -no-cpp-precomp -fexceptions -arch x86_64 -m64"
-# make
-# make test
-
 
 #### End of ipoptinstall shell script ###
