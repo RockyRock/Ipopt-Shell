@@ -42,11 +42,24 @@ make
 make install
 make test
 
+# Store make test exit value
+code=$?
+
 # Move to trash downloaded Ipopt archive
 mv -v ~/Ipopt-3.12.12.tgz ~/.Trash
 echo "Ipopt archive moved to trash!"
-echo "========================================"
-echo "Successful installation of Ipopt-3.12.12"
-echo "========================================"
+
+# Test for installation success
+if test "$code" -eq 0; then
+	echo "========================================"
+	echo "Successful installation of Ipopt-3.12.12"
+	echo "========================================"
+	exit 0
+else
+	echo "============================="
+	echo "!!!! Installation issues !!!!"
+	echo "============================="
+	exit 1
+fi
 
 #### End of ipoptinstall shell script ###
