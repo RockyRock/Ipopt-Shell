@@ -1,5 +1,5 @@
 #!/bin/bash
-# Shell script for the installation of IPOPT release 3.12.12
+# Shell script for the installation of Ipopt release 3.12.12
 # R. Guicherd - 25/02/2020
 
 # This shell script requires `curl`, `tar`
@@ -35,14 +35,14 @@ export ADD_FFLAGS="-fPIC -fno-common -mmacosx-version-min=10.9"
 make
 make install
 
-# Installation of ipopt and configuration
+# Installation of Ipopt and configuration
 cd ~/Ipopt-3.12.12
 ./configure --prefix=$HOME/Ipopt-3.12.12/opt --enable-static --disable-shared --without-metis
 make
 make install
 make test
 
-# Move to trash downloaded IPOPT archive
+# Move to trash downloaded Ipopt archive
 mv -v ~/Ipopt-3.12.12.tgz ~/.Trash
 echo "Ipopt archive moved to trash!"
 echo "========================================"
